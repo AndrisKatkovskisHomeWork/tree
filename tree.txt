@@ -1,0 +1,41 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        tree();
+    }
+
+    public static void tree (){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Please enter the tree height: ");
+
+        while (!input.hasNextInt()) {
+            System.out.print("\t Error! Please enter the number for the height of the tree: ");
+            input.next();
+        }
+
+        String hightString = input.next();
+        int hight = Integer.parseInt(hightString);
+
+        String spaceMaker = "";
+        for (int i = 0; i < hight; i++) {
+            spaceMaker += " ";
+        }
+
+        String asterixMaker = "";
+        for (int i = 0; i < hight; i++) {
+            asterixMaker += "*";
+        }
+
+        for (int i = hight; i > 0; i--) {
+            System.out.print(spaceMaker.substring(0, i));
+            System.out.println(asterixMaker.substring(0, asterixMaker.length() - i + 1)
+                    + asterixMaker.substring(0, asterixMaker.length() - i));
+
+        }
+    }
+}
